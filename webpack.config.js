@@ -1,22 +1,30 @@
 const path = require('path');
-
-const MODE_ENV = process.env.MODE_ENV;
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const NODE_ENV = process.env.NODE_ENV;
+const IS_DEV = NODE_ENV === 'development';
 module.exports={
+    resolve:{
+        extensions: ['.js', '.jsx','.ts', '.tsx','.json']
+    },
+    mode: NODE_ENV ? NODE_ENV:'development',
     entry:path.resolve(__dirname, 'src/index.jsx'),
     output:{
-        path:path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'index.js'
     },
-    resolve:{
-        extensions:['js','jsx','tsx','ts','json']
-    },
-    mode: MODE_ENV ? MODE_ENV : 'development',
-    
-   
     module: {
-        rules: [
-            { test:/\.[tj]sx?$/,use:['ts-loader'] },
-            
-        ],
+        rules: [{
+            test:/\.[tj]sx?$/,
+            use:['ts-loader']
+            }]
     },
+    plugins:[
+        new HTMLWebpackPlugin({template: path.resolve(__dirname, 'index.html')})
+    ],
+    devServer: {
+        port: 3000,
+        open: true,
+        hot:IS_DEV
+    }
+
 };

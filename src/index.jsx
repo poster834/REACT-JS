@@ -1,6 +1,7 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import ReactDOM from "react-dom";
 
 window.addEventListener('load',() => {
-    ReactDOM.render(<header/>, document.getElementById("react_root"));
-})
+    // console.log(true);
+  ReactDOM.render(<Header />, document.getElementById("react_root"));
+});
