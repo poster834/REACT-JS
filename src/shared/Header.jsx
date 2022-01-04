@@ -4,8 +4,7 @@ import * as React from "react";
 function HeaderComponent(){
     return(
         <header>
-            <h2>Hello, React, super!</h2>     
-            <p>Hello, there!</p>
+            <h2>Hello, React!</h2>
         </header>
     );
 } 
