@@ -6,8 +6,8 @@ function HeaderComponent(){
     // console.log(styles, styles.example);
     return(
         <header >
-            <h2 className={styles.example}>Hello, React, super!</h2>     
-            <p>Hello, there!</p>
+            <h2 className={styles.example}>Hello, React!</h2>     
+            
         </header>
     );
 } 
